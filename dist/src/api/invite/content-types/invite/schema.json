@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "invites",
+    "info": {
+        "singularName": "invite",
+        "pluralName": "invites",
+        "displayName": "invite",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "statusApproved": {
+            "type": "boolean"
+        },
+        "userInvites": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "invites"
+        },
+        "inviteShow": {
+            "type": "boolean"
+        },
+        "company": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::company.company"
+        },
+        "workspaces": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::workspace.workspace"
+        }
+    }
+}
